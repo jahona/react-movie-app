@@ -7,28 +7,13 @@ class App extends Component {
 
   // update : componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> compoentDidUpdate()
 
-  state = {
-  }
+  state = {}
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        movies: [
-          {
-            title: "Movie1",
-            poster: "http://ww2.sjkoreancatholic.org/files/testing_image.jpg"
-          },
-          {
-            title: "Movie2",
-            poster: "http://ww2.sjkoreancatholic.org/files/testing_image.jpg"
-          },
-          {
-            title: "Movie3",
-            poster: "http://ww2.sjkoreancatholic.org/files/testing_image.jpg"
-          }
-        ]
-      })
-    }, 5000)
+    fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    .then(movie => movie.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
   }
 
   // _를 붙인 이유는 기본 함수와 구별을 위함
