@@ -17,7 +17,14 @@ class App extends Component {
   _renderMovies = () => {
     // key={index}.. 키로 컴포넌트의 id를 주면 느리다. 따라서 movie.id를 사용
     const movies = this.state.movies.map(movie => {
-      return <Movie title={movie.title} poster={movie.large_cover_image} key={movie.id} />
+      console.log(movie);
+      return <Movie 
+        title={movie.title_english} 
+        poster={movie.medium_cover_image} 
+        key={movie.id}
+        genres={movie.genres}
+        synopsis={movie.synopsis}
+      />
     })
 
     return movies
@@ -28,7 +35,6 @@ class App extends Component {
     this.setState({
       movies: movies
     })
-
   }
 
   _callApi = () => {
