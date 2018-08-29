@@ -30,7 +30,7 @@ function MoviePoster({poster, alt}) {
 
 function MovieGenres({genre}) {
     return (
-        <span className="Movie__Genres">{genre}</span>
+        <span className="Movie__Genre">{genre}</span>
     )
 }
 
@@ -47,7 +47,7 @@ MoviePoster.propTypes = {
 }
 
 MovieGenres.propTypes = {
-    genres: PropTypes.string.isRequired
+    genre: PropTypes.string.isRequired
 }
 
 export default Movie;
